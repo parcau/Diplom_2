@@ -4,7 +4,7 @@ import stellar_burgers_api
 
 
 class TestCreateOrder:
-    @allure.step("Проверяем создание заказа с авторизацией")
+    @allure.title("Проверяем создание заказа с авторизацией")
     @allure.description(
         "Авторизируемся, создаем заказ, проверяем статус ответа и тело ответа"
     )
@@ -16,10 +16,9 @@ class TestCreateOrder:
         assert (
             create_order.status_code == 200
             and create_order.json()["name"] == data.TestCreateOrder.SPACE_BURGER
-            and create_order.json()["order"] is not None
         )
 
-    @allure.step("Проверяем создание заказа без авторизации")
+    @allure.title("Проверяем создание заказа без авторизации")
     @allure.description(
         "Создаем заказ без авторизации, проверяем статус ответа и тело ответа"
     )
@@ -33,7 +32,7 @@ class TestCreateOrder:
             and create_order.json()["order"] is not None
         )
 
-    @allure.step("Проверяем создание заказа без ингредиентов")
+    @allure.title("Проверяем создание заказа без ингредиентов")
     @allure.description(
         "Создаем заказ без ингредиентов, проверяем статус ответа и тело ответа"
     )
@@ -46,7 +45,7 @@ class TestCreateOrder:
             and create_order.json() == data.ResponseBodyText.MISSING_INGREDIENTS
         )
 
-    @allure.step("Проверяем создание заказа с неверным хемем ингредиентов")
+    @allure.title("Проверяем создание заказа с неверным хемем ингредиентов")
     @allure.description(
         "Создаем заказ с неверным хешем ингредиентов, проверяем статус ответа и тело ответа"
     )

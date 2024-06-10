@@ -5,7 +5,7 @@ import stellar_burgers_api
 
 
 class TestAuthUser:
-    @allure.step("Проверяем успешную авторизацию пользователя")
+    @allure.title("Проверяем успешную авторизацию пользователя")
     @allure.description(
         "Создаем польpователя, авторизуемся, проверяем статус ответа и тело ответа, удаляем пользователя"
     )
@@ -17,7 +17,7 @@ class TestAuthUser:
 
         assert auth_user.status_code == 200 and auth_user.json()["user"] is not None
 
-    @allure.step("Проверяем авторизацию с неверным email")
+    @allure.title("Проверяем авторизацию с неверным email")
     @allure.description(
         "Вводим несуществующий email, проверяем статус ответа и тело ответа"
     )
